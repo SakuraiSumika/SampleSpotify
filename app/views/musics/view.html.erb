@@ -1,0 +1,20 @@
+<h3>アーティスト名で検索</h3>
+<h1>検索結果</h1>
+<div>
+  <%=@searchartists%>
+</div>
+<div>
+  <% if @searchartists.present? %>
+    <% @searchartists.each do |searchartist| %>
+      <div>
+        <h3><%= searchartist.name %></h3>
+          <% if searchartist.images.any?%>
+            <%image = searchartist.images[1]%>
+            <%= image_tag(image["url"])%>
+          <%else%>
+            <%= image_tag("default.jpg")%>
+          <%end%>
+      </div>
+    <%end%>
+  <%end%>
+</div>
